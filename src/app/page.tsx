@@ -1,103 +1,120 @@
-import Image from "next/image";
-
+// Define o componente principal da página inicial.
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  // Lista de links do menu superior para facilitar a navegação entre seções internas.
+  const navegacao = [
+    { rotulo: "Início", destino: "#home" },
+    { rotulo: "Sobre", destino: "#sobre" },
+    { rotulo: "Projetos", destino: "#projetos" },
+    { rotulo: "Contato", destino: "#contato" },
+  ];
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  return (
+    // Container geral com altura mínima da tela e fundo escuro para reproduzir o visual desejado.
+    <div className="min-h-screen bg-[#05070d] text-white">
+      {/* Limita a largura do conteúdo, centraliza e aplica preenchimentos responsivos. */}
+      <div className="relative mx-auto flex min-h-screen max-w-5xl flex-col px-6 py-10 md:px-12 lg:px-16">
+        {/* Cabeçalho com logo nominal e navegação principal. */}
+        <header className="flex items-center justify-between text-sm text-zinc-300">
+          {/* Identidade mínima com o primeiro nome como assinatura visual. */}
+          <span className="text-base font-semibold text-white">Nicholas</span>
+          {/* Menu somente visível em telas médias ou maiores para manter o layout limpo no mobile. */}
+          <nav className="hidden gap-8 md:flex">
+            {navegacao.map((item) => (
+              <a
+                key={item.rotulo}
+                href={item.destino}
+                className="transition-colors hover:text-white"
+              >
+                {item.rotulo}
+              </a>
+            ))}
+          </nav>
+        </header>
+
+        {/* Área principal da página, centralizando o conteúdo hero. */}
+        <main id="home" className="mt-14 flex flex-1 flex-col justify-center">
+          {/* Cartão principal com bordas arredondadas, fundo translúcido e sombra suave. */}
+          <section className="rounded-3xl border border-white/5 bg-[#0f1117]/95 p-10 shadow-[0_25px_80px_rgba(5,7,13,0.65)] backdrop-blur md:p-16">
+            {/* Bloco com textos introdutórios e chamada para ação. */}
+            <section id="sobre" className="max-w-2xl space-y-8">
+              {/* Título principal com destaque em degradê para o nome. */}
+              <div className="space-y-4">
+                <h1 className="text-5xl font-semibold leading-tight text-white md:text-6xl">
+                  Olá, eu sou
+                  <br />
+                  <span className="bg-gradient-to-r from-[#3b82f6] via-[#60a5fa] to-white bg-clip-text text-transparent">
+                    Nicholas Focke
+                  </span>
+                </h1>
+                <p className="text-lg font-medium text-zinc-300 md:text-xl">
+                  Crio experiências digitais modernas e envolventes
+                </p>
+              </div>
+
+              {/* Parágrafo de apresentação explicando especialidades e foco profissional. */}
+              <p className="text-base leading-relaxed text-zinc-400 md:text-lg">
+                Sou Nicholas Focke, desenvolvedor dedicado a construir aplicações web de alta qualidade, com foco em
+                desempenho, acessibilidade e estética. Minha missão é transformar ideias em interfaces intuitivas e
+                eficientes.
+              </p>
+
+              {/* Botão principal incentivando a navegação para a vitrine de projetos. */}
+              <div>
+                <a
+                  href="#projetos"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-200 hover:scale-105"
+                >
+                  Ver meus projetos
+                </a>
+              </div>
+            </section>
+
+            {/* Seção de projetos em destaque localizada dentro do cartão principal. */}
+            <section id="projetos" className="mt-16 space-y-6">
+              <h2 className="text-2xl font-semibold text-white md:text-3xl">Projetos em destaque</h2>
+              {/* Grid preparado para expansão futura com mais cartões de projetos. */}
+              <div className="grid gap-6 md:grid-cols-1">
+                {/* Cartão individual de projeto com descrição resumida. */}
+                <article className="rounded-2xl border border-white/5 bg-[#10131a] p-8 shadow-[0_18px_60px_rgba(5,7,13,0.55)] transition-transform duration-200 hover:-translate-y-1">
+                  <div className="space-y-4">
+                    <h3 className="text-xl font-semibold text-white">Painel Analítico Interativo</h3>
+                    <p className="text-sm leading-relaxed text-zinc-400 md:text-base">
+                      Aplicação desenvolvida com Next.js e integrações em tempo real para visualização de métricas e
+                      indicadores personalizados.
+                    </p>
+                    <a
+                      href="#contato"
+                      className="inline-flex items-center text-sm font-medium text-blue-400 transition-colors hover:text-blue-300"
+                    >
+                      Solicitar demonstração
+                    </a>
+                  </div>
+                </article>
+              </div>
+            </section>
+
+            {/* Bloco final com convite para contato e networking profissional. */}
+            <section
+              id="contato"
+              className="mt-16 flex flex-col gap-4 rounded-2xl border border-white/5 bg-[#0d1016]/90 p-6 text-sm text-zinc-300 md:flex-row md:items-center md:justify-between"
+            >
+              <div className="space-y-2">
+                <h2 className="text-lg font-semibold text-white">Vamos conversar?</h2>
+                <p>
+                  Envie uma mensagem e explore como posso ajudar a transformar o seu próximo projeto digital em
+                  realidade.
+                </p>
+              </div>
+              <a
+                href="mailto:contato@nicholasfocke.dev"
+                className="inline-flex items-center justify-center rounded-full border border-blue-400 px-6 py-2 text-sm font-semibold text-blue-300 transition-colors hover:bg-blue-500/10"
+              >
+                Escrever para Nicholas
+              </a>
+            </section>
+          </section>
+        </main>
+      </div>
     </div>
   );
 }
