@@ -69,7 +69,39 @@
 .brand {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(226, 232, 240, 0.7);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(13, 16, 22, 0.75);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.socialLink:hover {
+  border-color: rgba(96, 165, 250, 0.75);
+  transform: translateY(-2px);
 }
 
 /* Navegação oculta no mobile e visível em telas médias. */
@@ -135,6 +167,24 @@
   row-gap: 1rem;
 }
 
+.heroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  background: rgba(30, 41, 59, 0.35);
+  padding: 0.35rem 0.9rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: rgba(226, 232, 240, 0.8);
+}
+
 /* Título com ajuste responsivo de tamanho. */
 .heroTitle {
   font-size: 3rem; /* text-5xl */
@@ -152,14 +202,15 @@
 .heroHighlight {
   position: relative;
   display: inline-block;
-  background: linear-gradient(0deg, #0062ff, #60a5fa, #4790ea);
-  background-size: 100% 100%; /* fixo */
-  background-position: center center;
+  background: linear-gradient(115deg, #4f46e5, #38bdf8 35%, #60a5fa 65%, #38bdf8 95%);
+  background-size: 180% 180%;
+  background-position: 0% 50%;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  /* Use text-shadow for a glow that affects only the letters (avoids filling the inline box) */
+  filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
+  animation: heroPulse 6s ease-in-out infinite;
 }
 
 /* Subtítulo com contraste suave. */
@@ -188,6 +239,12 @@
   }
 }
 
+.heroCtaGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
 /* Botão de chamada para ação. */
 .heroCta {
   display: inline-flex;
@@ -206,6 +263,55 @@
 
 .heroCta:hover {
   transform: scale(1.05);
+}
+
+.secondaryCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgba(96, 165, 250, 0.35);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(148 163 184);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.secondaryCta:hover {
+  border-color: rgba(96, 165, 250, 0.75);
+  color: rgb(191 219 254);
+}
+
+.marquee {
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  overflow: hidden;
+  border-radius: 9999px;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  background: rgba(10, 12, 18, 0.9);
+  mask-image: linear-gradient(to right, transparent, black 12%, black 88%, transparent);
+}
+
+.marqueeTrack {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0.85rem 2.5rem;
+  animation: marqueeScroll 18s linear infinite;
+  min-width: max-content;
+}
+
+.marqueeItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  color: rgba(226, 232, 240, 0.85);
+  text-transform: uppercase;
 }
 
 /* Seção de projetos com espaçamento superior. */
@@ -340,6 +446,25 @@
 }
 
 /* Animações compartilhadas. */
+@keyframes heroPulse {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 @keyframes waveDrift {
   0% {
     transform: translate3d(-5%, -3%, 0) scale(1.05);
