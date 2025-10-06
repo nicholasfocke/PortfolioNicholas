@@ -1,11 +1,14 @@
+/* Importa as diretivas utilitárias do Tailwind para uso em toda a aplicação. */
 @import "tailwindcss";
 
 :root {
+  /* Define cores base para reutilização nas variáveis de tema. */
   --background: #05070d;
   --foreground: #f4f4f5;
 }
 
 @theme inline {
+  /* Propaga as variáveis personalizadas para o sistema de design do Tailwind. */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -13,18 +16,22 @@
 }
 
 body {
+  /* Combinação de gradientes que reproduz o efeito atmosférico do layout de referência. */
   background: radial-gradient(circle at 15% 20%, rgba(37, 99, 235, 0.18), transparent 55%),
     radial-gradient(circle at 85% 30%, rgba(59, 130, 246, 0.12), transparent 50%),
     radial-gradient(circle at 50% 80%, rgba(59, 130, 246, 0.08), transparent 65%),
     var(--background);
+  /* Define cor padrão do texto e família tipográfica global. */
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* Garante que o fundo cubra toda a altura e remove margens nativas. */
   min-height: 100vh;
   margin: 0;
 }
 
 body::before,
 body::after {
+  /* Camadas extras de luz para criar profundidade sem interferir na interação do usuário. */
   content: "";
   position: fixed;
   inset: 0;
@@ -35,11 +42,13 @@ body::after {
 }
 
 body::before {
+  /* Gradientes focados na parte superior para simular iluminação lateral azulada. */
   background-image: radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.6), transparent 50%),
     radial-gradient(circle at 80% 70%, rgba(99, 102, 241, 0.35), transparent 60%);
 }
 
 body::after {
+  /* Linhas diagonais sutis reforçando a textura do cenário. */
   background-image: linear-gradient(120deg, transparent 0%, rgba(148, 163, 184, 0.15) 30%, transparent 60%),
     linear-gradient(300deg, transparent 10%, rgba(148, 163, 184, 0.1) 45%, transparent 70%);
 }
