@@ -1,0 +1,313 @@
+/*
+  Estilos modulares para a página inicial. Utilizamos CSS Modules para manter o escopo local
+  e facilitar ajustes detalhados sem depender do Tailwind.
+*/
+
+/* Plano de fundo e cor padrão da página. */
+.page {
+  min-height: 100vh;
+  background-color: #05070d;
+  color: #ffffff;
+}
+
+/* Container central que limita a largura e aplica preenchimentos responsivos. */
+.wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  min-height: 100vh;
+  max-width: 64rem; /* Equivalente ao max-w-5xl */
+  flex-direction: column;
+  padding: 2.5rem 1.5rem; /* py-10 px-6 */
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 2.5rem 3rem; /* md:px-12 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-left: 4rem; /* lg:px-16 */
+    padding-right: 4rem;
+  }
+}
+
+/* Cabeçalho com alinhamento horizontal. */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: rgb(212 212 216); /* text-zinc-300 */
+}
+
+/* Assinatura visual com maior destaque. */
+.brand {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Navegação oculta no mobile e visível em telas médias. */
+.navigation {
+  display: none;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    display: flex;
+  }
+}
+
+/* Links do menu com transição suave de cor. */
+.navLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+/* Área principal centralizada verticalmente. */
+.main {
+  margin-top: 3.5rem; /* mt-14 */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Cartão principal com efeito de vidro e sombras. */
+.heroCard {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(15, 17, 23, 0.95);
+  padding: 2.5rem;
+  box-shadow: 0 25px 80px rgba(5, 7, 13, 0.65);
+  backdrop-filter: blur(24px);
+}
+
+@media (min-width: 768px) {
+  .heroCard {
+    padding: 4rem;
+  }
+}
+
+/* Bloco textual com espaçamento vertical uniforme. */
+.heroContent {
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+/* Agrupamento do título principal. */
+.heroHeadingGroup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+/* Título com ajuste responsivo de tamanho. */
+.heroTitle {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
+}
+
+/* Destaque do nome em degradê. */
+.heroHighlight {
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtítulo com contraste suave. */
+.heroSubtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgb(212 212 216);
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Parágrafo de apresentação. */
+.heroDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgb(161 161 170); /* text-zinc-400 */
+}
+
+@media (min-width: 768px) {
+  .heroDescription {
+    font-size: 1.125rem;
+  }
+}
+
+/* Botão de chamada para ação. */
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 20px 45px rgba(29, 78, 216, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.heroCta:hover {
+  transform: scale(1.05);
+}
+
+/* Seção de projetos com espaçamento superior. */
+.projectsSection {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+/* Título da seção de projetos. */
+.projectsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .projectsTitle {
+    font-size: 1.875rem;
+  }
+}
+
+/* Grid preparado para múltiplos cards. */
+.projectsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Cartão individual do projeto. */
+.projectCard {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #10131a;
+  padding: 2rem;
+  box-shadow: 0 18px 60px rgba(5, 7, 13, 0.55);
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+}
+
+/* Título do projeto. */
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Descrição do projeto. */
+.projectDescription {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgb(161 161 170);
+}
+
+@media (min-width: 768px) {
+  .projectDescription {
+    font-size: 1rem;
+  }
+}
+
+/* Link de ação do projeto. */
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(96 165 250);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectLink:hover {
+  color: rgb(59 130 246);
+}
+
+/* Seção de contato com layout adaptável. */
+.contactSection {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(13, 16, 22, 0.9);
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  color: rgb(212 212 216);
+}
+
+@media (min-width: 768px) {
+  .contactSection {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Agrupamento textual do bloco de contato. */
+.contactContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+/* Texto da chamada final. */
+.contactTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Botão/link de contato. */
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgb(96 165 250);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(147 197 253);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.contactButton:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
