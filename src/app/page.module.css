@@ -1,0 +1,419 @@
+/*
+  Estilos modulares para a página inicial. Utilizamos CSS Modules para manter o escopo local
+  e facilitar ajustes detalhados sem depender do Tailwind.
+*/
+
+/* Plano de fundo e cor padrão da página. */
+.page {
+  position: relative;
+  min-height: 100vh;
+  background-color: #05070d;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Camada com ondas suaves animadas inspiradas no layout de referência. */
+.page::before,
+.page::after {
+  content: "";
+  position: fixed;
+  inset: -20% -30%;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat, repeat;
+  background-size: 130% 130%, 900px 900px;
+  opacity: 0.25;
+}
+
+/* Mistura gradiente suave com linhas onduladas em SVG para gerar o efeito dinâmico. */
+.page::before {
+  background-image:
+      radial-gradient(120% 120% at 50% 0%, rgba(33, 41, 60, 0.45), rgba(5, 7, 13, 0.9)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'%3E%3Cpath d='M-60 150c120-60 240 60 360 0s240-60 360 0 240 60 360 0 240-60 360 0 240 60 360 0' stroke='rgba(12,16,24,0.55)' stroke-width='2' fill='none'/%3E%3Cpath d='M-60 450c120-60 240 60 360 0s240-60 360 0 240 60 360 0 240-60 360 0 240 60 360 0' stroke='rgba(12,16,24,0.45)' stroke-width='2' fill='none'/%3E%3Cpath d='M-60 750c120-60 240 60 360 0s240-60 360 0 240 60 360 0 240-60 360 0 240 60 360 0' stroke='rgba(12,16,24,0.35)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  animation: waveDrift 22s ease-in-out infinite;
+}
+
+.page::after {
+  background-image:
+      radial-gradient(140% 120% at 20% 80%, rgba(20, 27, 44, 0.5), rgba(5, 7, 13, 0.95)),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 900' preserveAspectRatio='xMidYMid slice'%3E%3Cpath d='M-60 300c150-90 300 90 450 0s300-90 450 0 300 90 450 0 300-90 450 0 300 90 450 0' stroke='rgba(9,12,20,0.55)' stroke-width='2' fill='none'/%3E%3Cpath d='M-60 600c150-90 300 90 450 0s300-90 450 0 300 90 450 0 300-90 450 0 300 90 450 0' stroke='rgba(9,12,20,0.45)' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+  animation: waveDriftAlt 28s ease-in-out infinite;
+}
+
+/* Container central que limita a largura e aplica preenchimentos responsivos. */
+.wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  min-height: 100vh;
+  max-width: 64rem; /* Equivalente ao max-w-5xl */
+  flex-direction: column;
+  padding: 2.5rem 1.5rem; /* py-10 px-6 */
+  z-index: 1; /* Garante que o conteúdo fique acima das ondas do fundo. */
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 2.5rem 3rem; /* md:px-12 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapper {
+    padding-left: 4rem; /* lg:px-16 */
+    padding-right: 4rem;
+  }
+}
+
+/* Cabeçalho com alinhamento horizontal. */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: rgb(212 212 216); /* text-zinc-300 */
+}
+
+/* Assinatura visual com maior destaque. */
+.brand {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Navegação oculta no mobile e visível em telas médias. */
+.navigation {
+  display: none;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    display: flex;
+  }
+}
+
+/* Links do menu com transição suave de cor. */
+.navLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+/* Área principal centralizada verticalmente. */
+.main {
+  margin-top: 3.5rem; /* mt-14 */
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Cartão principal com efeito de vidro e sombras. */
+.heroCard {
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(15, 17, 23, 0.95);
+  padding: 2.5rem;
+  box-shadow: 0 25px 80px rgba(5, 7, 13, 0.65);
+  backdrop-filter: blur(24px);
+}
+
+@media (min-width: 768px) {
+  .heroCard {
+    padding: 4rem;
+  }
+}
+
+/* Bloco textual com espaçamento vertical uniforme. */
+.heroContent {
+  max-width: 32rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 2rem;
+}
+
+/* Agrupamento do título principal. */
+.heroHeadingGroup {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+}
+
+/* Título com ajuste responsivo de tamanho. */
+.heroTitle {
+  font-size: 3rem; /* text-5xl */
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
+}
+
+/* Destaque do nome em degradê. */
+.heroHighlight {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, #3b82f6, #60a5fa, #ffffff);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: highlightWave 6s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(59, 130, 246, 0.25));
+}
+
+.heroHighlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 20% 20%, rgba(255, 255, 255, 0.35), transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(96, 165, 250, 0.35), transparent 60%);
+  mix-blend-mode: screen;
+  opacity: 0.8;
+  animation: highlightSpark 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Subtítulo com contraste suave. */
+.heroSubtitle {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: rgb(212 212 216);
+}
+
+@media (min-width: 768px) {
+  .heroSubtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Parágrafo de apresentação. */
+.heroDescription {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgb(161 161 170); /* text-zinc-400 */
+}
+
+@media (min-width: 768px) {
+  .heroDescription {
+    font-size: 1.125rem;
+  }
+}
+
+/* Botão de chamada para ação. */
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #2563eb, #1d4ed8);
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+  box-shadow: 0 20px 45px rgba(29, 78, 216, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.heroCta:hover {
+  transform: scale(1.05);
+}
+
+/* Seção de projetos com espaçamento superior. */
+.projectsSection {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+
+/* Título da seção de projetos. */
+.projectsTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .projectsTitle {
+    font-size: 1.875rem;
+  }
+}
+
+/* Grid preparado para múltiplos cards. */
+.projectsGrid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Cartão individual do projeto. */
+.projectCard {
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: #10131a;
+  padding: 2rem;
+  box-shadow: 0 18px 60px rgba(5, 7, 13, 0.55);
+  transition: transform 0.2s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-4px);
+}
+
+/* Título do projeto. */
+.projectTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Descrição do projeto. */
+.projectDescription {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: rgb(161 161 170);
+}
+
+@media (min-width: 768px) {
+  .projectDescription {
+    font-size: 1rem;
+  }
+}
+
+/* Link de ação do projeto. */
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgb(96 165 250);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projectLink:hover {
+  color: rgb(59 130 246);
+}
+
+/* Seção de contato com layout adaptável. */
+.contactSection {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background-color: rgba(13, 16, 22, 0.9);
+  padding: 1.5rem;
+  font-size: 0.875rem;
+  color: rgb(212 212 216);
+}
+
+@media (min-width: 768px) {
+  .contactSection {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+/* Agrupamento textual do bloco de contato. */
+.contactContent {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+/* Texto da chamada final. */
+.contactTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Botão/link de contato. */
+.contactButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 1px solid rgb(96 165 250);
+  padding: 0.5rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: rgb(147 197 253);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.contactButton:hover {
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Animações compartilhadas. */
+@keyframes waveDrift {
+  0% {
+    transform: translate3d(-5%, -3%, 0) scale(1.05);
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    transform: translate3d(4%, 2%, 0) scale(1.07);
+    background-position: 0 0, 180px 120px;
+  }
+  100% {
+    transform: translate3d(-3%, -4%, 0) scale(1.05);
+    background-position: 0 0, 360px 0;
+  }
+}
+
+@keyframes waveDriftAlt {
+  0% {
+    transform: translate3d(4%, 3%, 0) scale(1.02);
+    background-position: 0 0, 0 0;
+  }
+  50% {
+    transform: translate3d(-2%, -1%, 0) scale(1.08);
+    background-position: 0 0, -220px 160px;
+  }
+  100% {
+    transform: translate3d(3%, 4%, 0) scale(1.02);
+    background-position: 0 0, -440px 0;
+  }
+}
+
+@keyframes highlightWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes highlightSpark {
+  0% {
+    opacity: 0.5;
+    transform: translate3d(-4%, -6%, 0) scale(0.95);
+  }
+  50% {
+    opacity: 0.85;
+    transform: translate3d(3%, 4%, 0) scale(1.05);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translate3d(-3%, -4%, 0) scale(0.96);
+  }
+}
