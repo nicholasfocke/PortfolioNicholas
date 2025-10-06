@@ -15,19 +15,7 @@ export default function Home() {
     <div className={styles.page}>
       {/* Limita a largura do conteúdo, centraliza e aplica preenchimentos responsivos. */}
       <div className={styles.wrapper}>
-        {/* Cabeçalho com logo nominal e navegação principal. */}
-        <header className={styles.header}>
-          {/* Identidade mínima com o primeiro nome como assinatura visual. */}
-          <span className={styles.brand}>Nicholas</span>
-          {/* Menu somente visível em telas médias ou maiores para manter o layout limpo no mobile. */}
-          <nav className={styles.navigation}>
-            {navegacao.map((item) => (
-              <a key={item.rotulo} href={item.destino} className={styles.navLink}>
-                {item.rotulo}
-              </a>
-            ))}
-          </nav>
-        </header>
+        {/* menu remoto conforme solicitado */}
 
         {/* Área principal da página, centralizando o conteúdo hero. */}
         <main id="home" className={styles.main}>
