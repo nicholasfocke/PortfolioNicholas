@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1.25rem;
 }
 
 .socialLinks {
@@ -157,7 +157,7 @@
   max-width: 1100px;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
 }
 
 /* Agrupamento do título principal. */
