@@ -78,7 +78,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 0.75rem;
 }
 
 .socialLinks {
@@ -157,46 +157,97 @@
   max-width: 1100px;
   display: flex;
   flex-direction: column;
-  row-gap: 2rem;
+  row-gap: 1.5rem;
 }
 
 /* Agrupamento do título principal. */
 .heroHeadingGroup {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 0.75rem;
 }
 
 /* Two-column layout for hero: text left, image right */
+
 .heroGrid {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
-  gap: 2rem;
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 480px);
+  column-gap: 0;
 }
 
 .heroText {
   max-width: 740px;
 }
 
-.heroImage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  max-width: 520px;
-  width: 100%;
-  margin: 0 auto;
+@media (min-width: 1024px) {
+  .heroText {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+  }
+
+  .heroCtaGroup {
+    margin-top: auto;
+  }
 }
 
-.heroImage :global(img) {
+.heroVisual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: auto;
+  max-width: 480px;
+  margin: 0;
+  align-self: end;
+}
+
+.hexOrbit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(220px, 32vw, 340px);
+  aspect-ratio: 1;
+  border-radius: 32px;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0));
+  filter: drop-shadow(0 0 22px rgba(37, 99, 235, 0.35));
+  animation: orbitDrift 16s linear infinite;
+}
+
+.hexOrbit::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  background: linear-gradient(145deg, rgba(56, 189, 248, 0.08), rgba(37, 99, 235, 0.42));
+  box-shadow: 0 0 0 2px rgba(125, 211, 252, 0.45), 0 0 32px rgba(37, 99, 235, 0.45);
+  filter: brightness(1.2);
+}
+
+.hexOrbit::after {
+  content: "";
+  position: absolute;
+  inset: 4%;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  background: radial-gradient(65% 65% at 50% 50%, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0));
+  animation: hexPulse 6s ease-in-out infinite;
+}
+
+.hexCore {
+  position: relative;
+  display: block;
+  width: 52%;
+  aspect-ratio: 1;
+  clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
+  background: radial-gradient(60% 60% at 50% 40%, rgba(191, 219, 254, 0.8), rgba(37, 99, 235, 0.65));
+  box-shadow: inset 0 0 22px rgba(59, 130, 246, 0.65), 0 0 45px rgba(56, 189, 248, 0.4);
+  animation: hexGlow 8s ease-in-out infinite;
 }
 
 @media (min-width: 1024px) {
-  .heroImage {
-    align-self: flex-start;
-    transform: translateY(-1.75rem);
+  .heroVisual {
+    align-self: end;
   }
 }
 
@@ -206,8 +257,9 @@
     grid-template-columns: 1fr;
     gap: 1.25rem;
   }
-  .heroImage {
+  .heroVisual {
     margin-top: 0.25rem;
+    align-self: center;
   }
 }
 
@@ -490,6 +542,37 @@
 }
 
 /* Animações compartilhadas. */
+@keyframes orbitDrift {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes hexPulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.96);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes hexGlow {
+  0%,
+  100% {
+    box-shadow: inset 0 0 18px rgba(59, 130, 246, 0.5), 0 0 32px rgba(56, 189, 248, 0.35);
+  }
+  50% {
+    box-shadow: inset 0 0 28px rgba(125, 211, 252, 0.75), 0 0 56px rgba(56, 189, 248, 0.6);
+  }
+}
+
 @keyframes heroPulse {
   0%,
   100% {
