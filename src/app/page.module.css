@@ -171,8 +171,8 @@
 .heroGrid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
-  gap: 2rem;
-  align-items: center;
+  column-gap: 0;
+  align-items: end;
 }
 
 .heroText {
@@ -185,7 +185,8 @@
   align-items: center;
   max-width: 520px;
   width: 100%;
-  margin: 0 auto;
+  margin: 0;
+  align-self: end;
 }
 
 .heroImage :global(img) {
@@ -195,8 +196,8 @@
 
 @media (min-width: 1024px) {
   .heroImage {
-    align-self: flex-start;
-    transform: translateY(-1.75rem);
+    align-self: end;
+    transform: none;
   }
 }
 
@@ -208,6 +209,7 @@
   }
   .heroImage {
     margin-top: 0.25rem;
+    align-self: center;
   }
 }
 
