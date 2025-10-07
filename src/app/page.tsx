@@ -87,8 +87,10 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className={styles.heroImage}>
-                  <Image src="/images/nicholas.png" alt="Nicholas" width={600} height={600} />
+                <div className={styles.heroVisual} aria-hidden="true">
+                  <div className={styles.hexOrbit}>
+                    <span className={styles.hexCore} />
+                  </div>
                 </div>
               </div>
             </section>
