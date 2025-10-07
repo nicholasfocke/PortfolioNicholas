@@ -42,7 +42,7 @@ export default function Home() {
           {/* Cartão principal com bordas arredondadas, fundo translúcido e sombra suave. */}
           <section className={styles.heroCard}>
             <header className={styles.cardHeader}>
-              <span className={styles.brand}>Nicholas</span>
+              <span className={styles.brand}>Nicholas Focke</span>
               <nav className={styles.socialLinks} aria-label="Redes sociais">
                 {redesSociais.map((rede) => (
                   <a key={rede.nome} href={rede.href} target="_blank" rel="noreferrer" className={styles.socialLink}>
@@ -57,8 +57,9 @@ export default function Home() {
               {/* Título principal com destaque em degradê para o nome. */}
               <div className={styles.heroHeadingGroup}>
                 <div className={styles.heroBadges}>
+                  <span className={styles.heroBadge}>Back-end</span>
                   <span className={styles.heroBadge}>Front-end</span>
-                  <span className={styles.heroBadge}>UI Crafting</span>
+                  <span className={styles.heroBadge}>Database</span>
                   <span className={styles.heroBadge}>Integrações</span>
                 </div>
                 <h1 className={styles.heroTitle}>
