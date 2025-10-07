@@ -2,33 +2,34 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
-export default function Home() {
-  const redesSociais = [
-    {
-      nome: "GitHub",
-      href: "https://github.com/nicholasfocke",
-      icone: "/components/github.svg",
-    },
-    {
-      nome: "LinkedIn",
-      href: "https://www.linkedin.com/in/nicholasfocke/",
-      icone: "/components/linkedin.svg",
-    },
-    {
-      nome: "WhatsApp",
-      href: "https://wa.me/5548999999999",
-      icone: "/components/whatsapp.svg",
-    },
-  ];
+const redesSociais = [
+  {
+    nome: "GitHub",
+    href: "https://github.com/nicholasfocke",
+    icone: "/components/github.svg",
+  },
+  {
+    nome: "LinkedIn",
+    href: "https://www.linkedin.com/in/nicholasfocke/",
+    icone: "/components/linkedin.svg",
+  },
+  {
+    nome: "WhatsApp",
+    href: "https://wa.me/5548999999999",
+    icone: "/components/whatsapp.svg",
+  },
+] as const;
 
-  const tecnologias = [
-    { nome: "Firebase", icone: "/components/firebase-svgrepo-com.svg" },
-    { nome: "MySQL", icone: "/components/mysql-svgrepo-com.svg" },
-    { nome: "Next.js", icone: "/components/nextjs-svgrepo-com.svg" },
-    { nome: "PostgreSQL", icone: "/components/postgresql-svgrepo-com.svg" },
-    { nome: "Python", icone: "/components/python-svgrepo-com.svg" },
-    { nome: "TypeScript", icone: "/components/typescript-svgrepo-com.svg" },
-  ];
+const tecnologias = [
+  { nome: "Firebase", icone: "/components/firebase-svgrepo-com.svg" },
+  { nome: "MySQL", icone: "/components/mysql-svgrepo-com.svg" },
+  { nome: "Next.js", icone: "/components/nextjs-svgrepo-com.svg" },
+  { nome: "PostgreSQL", icone: "/components/postgresql-svgrepo-com.svg" },
+  { nome: "Python", icone: "/components/python-svgrepo-com.svg" },
+  { nome: "TypeScript", icone: "/components/typescript-svgrepo-com.svg" },
+] as const;
+
+export default function Home() {
 
   return (
     // Container geral com altura mínima da tela e fundo escuro para reproduzir o visual desejado.
@@ -46,7 +47,15 @@ export default function Home() {
               <nav className={styles.socialLinks} aria-label="Redes sociais">
                 {redesSociais.map((rede) => (
                   <a key={rede.nome} href={rede.href} target="_blank" rel="noreferrer" className={styles.socialLink}>
-                    <Image src={rede.icone} alt={rede.nome} width={28} height={28} />
+                    <Image
+                      src={rede.icone}
+                      alt={rede.nome}
+                      width={28}
+                      height={28}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="28px"
+                    />
                   </a>
                 ))}
               </nav>
@@ -92,7 +101,15 @@ export default function Home() {
               <div className={styles.marqueeTrack}>
                 {[...tecnologias, ...tecnologias].map((tech, index) => (
                   <span key={`${tech.nome}-${index}`} className={styles.marqueeItem}>
-                    <Image src={tech.icone} alt={tech.nome} width={32} height={32} />
+                    <Image
+                      src={tech.icone}
+                      alt={tech.nome}
+                      width={32}
+                      height={32}
+                      loading="lazy"
+                      decoding="async"
+                      sizes="32px"
+                    />
                     <span>{tech.nome}</span>
                   </span>
                 ))}

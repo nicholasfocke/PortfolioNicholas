@@ -140,10 +140,10 @@
 .heroCard {
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: rgba(15, 17, 23, 0.95);
+  background-color: rgba(15, 17, 23, 0.9);
   padding: 2.5rem;
-  box-shadow: 0 25px 80px rgba(5, 7, 13, 0.65);
-  backdrop-filter: blur(24px);
+  box-shadow: 0 16px 60px rgba(5, 7, 13, 0.5);
+  backdrop-filter: blur(18px);
 }
 
 @media (min-width: 768px) {
@@ -300,8 +300,9 @@
   align-items: center;
   gap: 2.5rem;
   padding: 0.85rem 2.5rem;
-  animation: marqueeScroll 18s linear infinite;
+  animation: marqueeScroll var(--marquee-duration, 18s) linear infinite;
   min-width: max-content;
+  will-change: transform;
 }
 
 .marqueeItem {
@@ -496,3 +497,16 @@
 }
 
 /* Removed animation keyframes for static gradient */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroHighlight,
+  .marqueeTrack,
+  .page::before,
+  .page::after {
+    animation: none !important;
+  }
+
+  .marqueeTrack {
+    will-change: auto;
+  }
+}
