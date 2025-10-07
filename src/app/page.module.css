@@ -140,10 +140,10 @@
 .heroCard {
   border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  background-color: rgba(15, 17, 23, 0.9);
+  background-color: rgba(15, 17, 23, 0.95);
   padding: 2.5rem;
-  box-shadow: 0 16px 60px rgba(5, 7, 13, 0.5);
-  backdrop-filter: blur(18px);
+  box-shadow: 0 25px 80px rgba(5, 7, 13, 0.65);
+  backdrop-filter: blur(24px);
 }
 
 @media (min-width: 768px) {
@@ -154,7 +154,7 @@
 
 /* Bloco textual com espaçamento vertical uniforme. */
 .heroContent {
-  max-width: 32rem;
+  max-width: 1100px;
   display: flex;
   flex-direction: column;
   row-gap: 2rem;
@@ -165,6 +165,37 @@
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+}
+
+/* Two-column layout for hero: text left, image right */
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  align-items: center;
+}
+
+.heroText {
+  max-width: 740px;
+}
+
+.heroImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* Make hero responsive: stack columns on small screens */
+@media (max-width: 820px) {
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  .heroImage {
+    margin-top: 0.25rem;
+  }
 }
 
 .heroBadges {
@@ -300,9 +331,8 @@
   align-items: center;
   gap: 2.5rem;
   padding: 0.85rem 2.5rem;
-  animation: marqueeScroll var(--marquee-duration, 18s) linear infinite;
+  animation: marqueeScroll 18s linear infinite;
   min-width: max-content;
-  will-change: transform;
 }
 
 .marqueeItem {
@@ -497,16 +527,3 @@
 }
 
 /* Removed animation keyframes for static gradient */
-
-@media (prefers-reduced-motion: reduce) {
-  .heroHighlight,
-  .marqueeTrack,
-  .page::before,
-  .page::after {
-    animation: none !important;
-  }
-
-  .marqueeTrack {
-    will-change: auto;
-  }
-}
