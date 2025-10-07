@@ -37,7 +37,7 @@ body::after {
   /* Raise z-index so pseudo-elements are painted above the page background but below main content */
   z-index: 0;
   /* Increase opacity para tornar as ondas levemente mais visíveis */
-  opacity: 0.12;
+  opacity: 0.1;
   /* Control default positioning/sizing of the layered backgrounds (individual rules may override) */
   background-position: 20% 30%, 80% 70%, center top;
   background-size: auto, auto, 160% 40%;
@@ -57,4 +57,11 @@ body::after {
     linear-gradient(300deg, transparent 10%, rgba(148, 163, 184, 0.1) 45%, transparent 70%),
     /* Another subtle wave layer shifted vertically for depth */
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 200'%3E%3Cpath d='M0 120 C180 70 360 170 540 120 C720 70 900 170 1080 120 C1260 70 1440 170 1440 170 L1440 200 L0 200 Z' fill='rgba(255,255,255,0.03)'/%3E%3C/svg%3E");
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  body::after {
+    content: none;
+  }
 }
