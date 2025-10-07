@@ -170,7 +170,7 @@
 /* Two-column layout for hero: text left, image right */
 .heroGrid {
   display: grid;
-  grid-template-columns: 1fr 320px;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 520px);
   gap: 2rem;
   align-items: center;
 }
@@ -183,8 +183,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 460px;
+  max-width: 520px;
+  width: 100%;
   margin: 0 auto;
+}
+
+.heroImage :global(img) {
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 1024px) {
+  .heroImage {
+    align-self: flex-start;
+    transform: translateY(-1.75rem);
+  }
 }
 
 /* Make hero responsive: stack columns on small screens */
