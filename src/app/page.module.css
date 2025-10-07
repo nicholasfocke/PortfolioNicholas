@@ -193,6 +193,13 @@
   height: auto;
 }
 
+@media (min-width: 1024px) {
+  .heroImage {
+    align-self: flex-start;
+    transform: translateY(-1.75rem);
+  }
+}
+
 /* Make hero responsive: stack columns on small screens */
 @media (max-width: 820px) {
   .heroGrid {
