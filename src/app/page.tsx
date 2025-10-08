@@ -1,8 +1,19 @@
+"use client";
+
 // Define o componente principal da página inicial.
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./page.module.css";
 
 export default function Home() {
+  type Project = {
+    title: string;
+    description: string;
+    image: string;
+    link: string;
+    details: string;
+  };
+
   const redesSociais = [
     {
       nome: "GitHub",
@@ -29,6 +40,35 @@ export default function Home() {
     { nome: "Python", icone: "/components/python-svgrepo-com.svg" },
     { nome: "TypeScript", icone: "/components/typescript-svgrepo-com.svg" },
   ];
+
+  const featuredProjects: Project[] = [
+    {
+      title: "ClinicAid",
+      description: "Plataforma completa para gestão de clínicas, oferecendo dashboards inteligentes e relatórios em tempo real.",
+      image: "/images/clinicaid.png",
+      link: "#",
+      details:
+        "O ClinicAid centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
+    },
+    {
+      title: "Frida Kids",
+      description: "E-commerce criativo voltado para o público infantil, com foco em experiência visual e acessibilidade.",
+      image: "/images/fridakids.png",
+      link: "https://fridakids.vercel.app/login",
+      details:
+        "O projeto Frida Kids conecta marcas e famílias através de catálogos dinâmicos, personalização de produtos e conteúdo editorial.",
+    },
+    {
+      title: "Kontaki",
+      description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
+      image: "/images/kontaki.png",
+      link: "https://www.kontaki.io/",
+      details:
+        "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
+    },
+  ];
+
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     // Container geral com altura mínima da tela e fundo escuro para reproduzir o visual desejado.
@@ -109,21 +149,33 @@ export default function Home() {
             {/* Seção de projetos em destaque localizada dentro do cartão principal. */}
             <section id="projetos" className={styles.projectsSection}>
               <h2 className={styles.projectsTitle}>Projetos em destaque</h2>
-              {/* Grid preparado para expansão futura com mais cartões de projetos. */}
+              {/* Grid preparado para múltiplos cartões de projetos com destaque visual. */}
               <div className={styles.projectsGrid}>
-                {/* Cartão individual de projeto com descrição resumida. */}
-                <article className={styles.projectCard}>
-                  <div className={styles.heroHeadingGroup}>
-                    <h3 className={styles.projectTitle}>Painel Analítico Interativo</h3>
-                    <p className={styles.projectDescription}>
-                      Aplicação desenvolvida com Next.js e integrações em tempo real para visualização de métricas e
-                      indicadores personalizados.
-                    </p>
-                    <a href="#contato" className={styles.projectLink}>
-                      Solicitar demonstração
-                    </a>
-                  </div>
-                </article>
+                {featuredProjects.map((project) => (
+                  <button
+                    key={project.title}
+                    type="button"
+                    className={styles.projectCard}
+                    onClick={() => setSelectedProject(project)}
+                    aria-label={`Ver detalhes do projeto ${project.title}`}
+                  >
+                    <div className={styles.projectMedia}>
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className={styles.projectImage}
+                      />
+                      <span className={styles.projectTag}>Explorar projeto</span>
+                    </div>
+                    <div className={styles.projectContent}>
+                      <h3 className={styles.projectTitle}>{project.title}</h3>
+                      <p className={styles.projectDescription}>{project.description}</p>
+                      <span className={styles.projectHint}>Clique para saber mais</span>
+                    </div>
+                  </button>
+                ))}
               </div>
             </section>
 
@@ -143,6 +195,48 @@ export default function Home() {
           </section>
         </main>
       </div>
+
+      {selectedProject && (
+        <div
+          className={styles.projectModalOverlay}
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="project-modal-title"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className={styles.projectModal}
+            onClick={(event) => event.stopPropagation()}
+          >
+            <header className={styles.projectModalHeader}>
+              <h3 id="project-modal-title" className={styles.projectModalTitle}>
+                {selectedProject.title}
+              </h3>
+              <button
+                type="button"
+                className={styles.projectModalClose}
+                onClick={() => setSelectedProject(null)}
+                aria-label="Fechar detalhes do projeto"
+              >
+                ✕
+              </button>
+            </header>
+            <div className={styles.projectModalBody}>
+              <p>{selectedProject.details}</p>
+            </div>
+            <footer className={styles.projectModalFooter}>
+              <a
+                href={selectedProject.link}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.projectModalLink}
+              >
+                Acessar projeto
+              </a>
+            </footer>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
