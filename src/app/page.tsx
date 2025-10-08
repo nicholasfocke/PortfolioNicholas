@@ -43,18 +43,18 @@ export default function Home() {
 
   const featuredProjects: Project[] = [
     {
-      title: "ClinicaID",
+      title: "ClinicAid",
       description: "Plataforma completa para gestão de clínicas, oferecendo dashboards inteligentes e relatórios em tempo real.",
       image: "/images/clinicaid.png",
-      link: "https://example.com/clinicaid",
+      link: "#",
       details:
-        "O ClinicaID centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
+        "O ClinicAid centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
     },
     {
       title: "Frida Kids",
       description: "E-commerce criativo voltado para o público infantil, com foco em experiência visual e acessibilidade.",
       image: "/images/fridakids.png",
-      link: "https://example.com/fridakids",
+      link: "https://fridakids.vercel.app/login",
       details:
         "O projeto Frida Kids conecta marcas e famílias através de catálogos dinâmicos, personalização de produtos e conteúdo editorial.",
     },
@@ -62,7 +62,7 @@ export default function Home() {
       title: "Kontaki",
       description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
       image: "/images/kontaki.png",
-      link: "https://example.com/kontaki",
+      link: "https://www.kontaki.io/",
       details:
         "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
     },
