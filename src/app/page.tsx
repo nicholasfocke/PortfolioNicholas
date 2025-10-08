@@ -22,12 +22,12 @@ export default function Home() {
     },
     {
       nome: "LinkedIn",
-      href: "https://www.linkedin.com/in/nicholasfocke/",
+      href: "https://www.linkedin.com/in/nicholas-focke-833049269/",
       icone: "/components/linkedin.svg",
     },
     {
       nome: "WhatsApp",
-      href: "https://wa.me/5548999999999",
+      href: "https://wa.me/5582999040045",
       icone: "/components/whatsapp.svg",
     },
   ];
@@ -43,12 +43,12 @@ export default function Home() {
 
   const featuredProjects: Project[] = [
     {
-      title: "ClinicAid",
-      description: "Plataforma completa para gestão de clínicas, oferecendo dashboards inteligentes e relatórios em tempo real.",
-      image: "/images/clinicaid.png",
-      link: "#",
+      title: "Kontaki",
+      description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
+      image: "/images/kontaki.png",
+      link: "https://www.kontaki.io/",
       details:
-        "O ClinicAid centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
+        "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
     },
     {
       title: "Frida Kids",
@@ -59,12 +59,12 @@ export default function Home() {
         "O projeto Frida Kids conecta marcas e famílias através de catálogos dinâmicos, personalização de produtos e conteúdo editorial.",
     },
     {
-      title: "Kontaki",
-      description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
-      image: "/images/kontaki.png",
-      link: "https://www.kontaki.io/",
+      title: "ClinicAid",
+      description: "Plataforma completa para gestão de clínicas, oferecendo dashboards inteligentes e relatórios em tempo real.",
+      image: "/images/clinicaid.png",
+      link: "#",
       details:
-        "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
+        "O ClinicAid centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
     },
   ];
 
@@ -121,7 +121,7 @@ export default function Home() {
                     <a href="#projetos" className={styles.heroCta}>
                       Ver meus projetos
                     </a>
-                    <a href="#contato" className={styles.secondaryCta}>
+                    <a href="mailto:nicholasfocke05@gmail.com" className={styles.secondaryCta}>
                       Entrar em contato
                     </a>
                   </div>
@@ -188,7 +188,7 @@ export default function Home() {
                   realidade.
                 </p>
               </div>
-              <a href="mailto:contato@nicholasfocke.dev" className={styles.contactButton}>
+              <a href="mailto:nicholasfocke05@gmail.com" className={styles.contactButton}>
                 Escrever para Nicholas
               </a>
             </section>

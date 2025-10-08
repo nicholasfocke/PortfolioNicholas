@@ -213,6 +213,7 @@
   background: radial-gradient(60% 60% at 50% 50%, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0));
   filter: drop-shadow(0 0 22px rgba(37, 99, 235, 0.35));
   animation: orbitDrift 16s linear infinite;
+  margin-bottom: 70px;
 }
 
 .hexOrbit::before {
