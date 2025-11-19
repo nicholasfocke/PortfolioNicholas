@@ -36,7 +36,7 @@ export default function Home() {
     {
       title: "Kontaki",
       description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
-      image: "/images/kontaki.png",
+      image: "/images/kontaki.svg",
       link: "https://www.kontaki.io/",
       details:
         "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
