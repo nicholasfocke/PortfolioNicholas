@@ -1,18 +1,9 @@
-"use client";
-
 // Define o componente principal da página inicial.
 import Image from "next/image";
-import { useState } from "react";
 import styles from "./page.module.css";
+import { FeaturedProjects, type Project } from "./components/FeaturedProjects";
 
 export default function Home() {
-  type Project = {
-    title: string;
-    description: string;
-    image: string;
-    link: string;
-    details: string;
-  };
 
   const redesSociais = [
     {
@@ -67,8 +58,6 @@ export default function Home() {
         "O ClinicAid centraliza o atendimento, cadastros de pacientes e indicadores de performance em um único ambiente integrado.",
     },
   ];
-
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     // Container geral com altura mínima da tela e fundo escuro para reproduzir o visual desejado.
@@ -128,56 +117,50 @@ export default function Home() {
                 </div>
 
                 <div className={styles.heroVisual} aria-hidden="true">
-                  <div className={styles.hexOrbit}>
-                    <span className={styles.hexCore} />
+                  <div className={styles.heroVisualCard}>
+                    <p className={styles.heroVisualEyebrow}>Disponível para novos desafios</p>
+                    <p className={styles.heroVisualTitle}>+30 entregas completas</p>
+                    <p className={styles.heroVisualSubtitle}>
+                      SaaS, plataformas clínicas, e-commerces e integrações de automação comercial.
+                    </p>
+                  </div>
+                  <div className={styles.heroVisualStats}>
+                    <div>
+                      <span className={styles.heroStatLabel}>Experiência</span>
+                      <strong className={styles.heroStatValue}>5+ anos</strong>
+                    </div>
+                    <div>
+                      <span className={styles.heroStatLabel}>Especialidades</span>
+                      <strong className={styles.heroStatValue}>Full-stack & Data</strong>
+                    </div>
                   </div>
                 </div>
               </div>
             </section>
 
-            <div className={styles.marquee} aria-hidden="true">
-              <div className={styles.marqueeTrack}>
-                {[...tecnologias, ...tecnologias].map((tech, index) => (
-                  <span key={`${tech.nome}-${index}`} className={styles.marqueeItem}>
-                    <Image src={tech.icone} alt={tech.nome} width={32} height={32} />
+            <section className={styles.techSection} aria-label="Tecnologias favoritas">
+              <div className={styles.sectionHeading}>
+                <div>
+                  <p className={styles.sectionEyebrow}>Stack principal</p>
+                  <h2 className={styles.techTitle}>Tecnologias que uso no dia a dia</h2>
+                </div>
+                <p className={styles.sectionDescription}>
+                  Bases sólidas para performance, escalabilidade e qualidade visual.
+                </p>
+              </div>
+              <ul className={styles.techList}>
+                {tecnologias.map((tech) => (
+                  <li key={tech.nome} className={styles.techItem}>
+                    <span className={styles.techIconWrapper}>
+                      <Image src={tech.icone} alt={tech.nome} width={28} height={28} />
+                    </span>
                     <span>{tech.nome}</span>
-                  </span>
+                  </li>
                 ))}
-              </div>
-            </div>
-
-            {/* Seção de projetos em destaque localizada dentro do cartão principal. */}
-            <section id="projetos" className={styles.projectsSection}>
-              <h2 className={styles.projectsTitle}>Projetos em destaque</h2>
-              {/* Grid preparado para múltiplos cartões de projetos com destaque visual. */}
-              <div className={styles.projectsGrid}>
-                {featuredProjects.map((project) => (
-                  <button
-                    key={project.title}
-                    type="button"
-                    className={styles.projectCard}
-                    onClick={() => setSelectedProject(project)}
-                    aria-label={`Ver detalhes do projeto ${project.title}`}
-                  >
-                    <div className={styles.projectMedia}>
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        className={styles.projectImage}
-                      />
-                      <span className={styles.projectTag}>Explorar projeto</span>
-                    </div>
-                    <div className={styles.projectContent}>
-                      <h3 className={styles.projectTitle}>{project.title}</h3>
-                      <p className={styles.projectDescription}>{project.description}</p>
-                      <span className={styles.projectHint}>Clique para saber mais</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
+              </ul>
             </section>
+
+            <FeaturedProjects projects={featuredProjects} />
 
             {/* Bloco final com convite para contato e networking profissional. */}
             <section id="contato" className={styles.contactSection}>
@@ -196,47 +179,6 @@ export default function Home() {
         </main>
       </div>
 
-      {selectedProject && (
-        <div
-          className={styles.projectModalOverlay}
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="project-modal-title"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className={styles.projectModal}
-            onClick={(event) => event.stopPropagation()}
-          >
-            <header className={styles.projectModalHeader}>
-              <h3 id="project-modal-title" className={styles.projectModalTitle}>
-                {selectedProject.title}
-              </h3>
-              <button
-                type="button"
-                className={styles.projectModalClose}
-                onClick={() => setSelectedProject(null)}
-                aria-label="Fechar detalhes do projeto"
-              >
-                ✕
-              </button>
-            </header>
-            <div className={styles.projectModalBody}>
-              <p>{selectedProject.details}</p>
-            </div>
-            <footer className={styles.projectModalFooter}>
-              <a
-                href={selectedProject.link}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.projectModalLink}
-              >
-                Acessar projeto
-              </a>
-            </footer>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
