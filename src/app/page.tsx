@@ -119,7 +119,7 @@ export default function Home() {
                 <div className={styles.heroVisual} aria-hidden="true">
                   <div className={styles.heroVisualCard}>
                     <p className={styles.heroVisualEyebrow}>Disponível para novos desafios</p>
-                    <p className={styles.heroVisualTitle}>+30 entregas completas</p>
+                    <p className={styles.heroVisualTitle}>+3 entregas completas</p>
                     <p className={styles.heroVisualSubtitle}>
                       SaaS, plataformas clínicas, e-commerces e integrações de automação comercial.
                     </p>
@@ -127,7 +127,7 @@ export default function Home() {
                   <div className={styles.heroVisualStats}>
                     <div>
                       <span className={styles.heroStatLabel}>Experiência</span>
-                      <strong className={styles.heroStatValue}>5+ anos</strong>
+                      <strong className={styles.heroStatValue}>1+ anos</strong>
                     </div>
                     <div>
                       <span className={styles.heroStatLabel}>Especialidades</span>
