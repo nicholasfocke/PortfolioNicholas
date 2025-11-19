@@ -31,12 +31,10 @@
 .page::before {
   /* Kept a soft radial overlay for depth; main wave SVGs live in body::before/after now */
   background-image: radial-gradient(120% 120% at 50% 0%, rgba(20, 26, 34, 0.35), rgba(5, 7, 13, 0.9));
-  animation: waveDrift 22s ease-in-out infinite; /* subtle movement of overlay */
 }
 
 .page::after {
   background-image: radial-gradient(140% 120% at 20% 80%, rgba(14, 18, 24, 0.28), rgba(5, 7, 13, 0.95));
-  animation: waveDriftAlt 28s ease-in-out infinite;
 }
 
 /* Container central que limita a largura e aplica preenchimentos responsivos. */
@@ -212,7 +210,6 @@
   border-radius: 32px;
   background: radial-gradient(60% 60% at 50% 50%, rgba(59, 130, 246, 0.25), rgba(15, 23, 42, 0));
   filter: drop-shadow(0 0 22px rgba(37, 99, 235, 0.35));
-  animation: orbitDrift 16s linear infinite;
   margin-bottom: 70px;
 }
 
@@ -232,7 +229,6 @@
   inset: 4%;
   clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
   background: radial-gradient(65% 65% at 50% 50%, rgba(56, 189, 248, 0.18), rgba(15, 23, 42, 0));
-  animation: hexPulse 6s ease-in-out infinite;
 }
 
 .hexCore {
@@ -243,7 +239,6 @@
   clip-path: polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%);
   background: radial-gradient(60% 60% at 50% 40%, rgba(191, 219, 254, 0.8), rgba(37, 99, 235, 0.65));
   box-shadow: inset 0 0 22px rgba(59, 130, 246, 0.65), 0 0 45px rgba(56, 189, 248, 0.4);
-  animation: hexGlow 8s ease-in-out infinite;
 }
 
 @media (min-width: 1024px) {
@@ -307,7 +302,6 @@
   -webkit-text-fill-color: transparent;
   color: transparent;
   filter: drop-shadow(0 0 14px rgba(56, 189, 248, 0.45));
-  animation: heroPulse 6s ease-in-out infinite;
 }
 
 /* Subtítulo com contraste suave. */
@@ -682,48 +676,6 @@
   background-color: rgba(59, 130, 246, 0.1);
 }
 
-/* Animações compartilhadas. */
-@keyframes orbitDrift {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes hexPulse {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(0.96);
-  }
-  50% {
-    opacity: 0.9;
-    transform: scale(1.04);
-  }
-}
-
-@keyframes hexGlow {
-  0%,
-  100% {
-    box-shadow: inset 0 0 18px rgba(59, 130, 246, 0.5), 0 0 32px rgba(56, 189, 248, 0.35);
-  }
-  50% {
-    box-shadow: inset 0 0 28px rgba(125, 211, 252, 0.75), 0 0 56px rgba(56, 189, 248, 0.6);
-  }
-}
-
-@keyframes heroPulse {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-}
-
 @keyframes marqueeScroll {
   0% {
     transform: translateX(0);
@@ -732,35 +684,3 @@
     transform: translateX(-50%);
   }
 }
-
-@keyframes waveDrift {
-  0% {
-    transform: translate3d(-5%, -3%, 0) scale(1.05);
-    background-position: 0 0, 0 0;
-  }
-  50% {
-    transform: translate3d(4%, 2%, 0) scale(1.07);
-    background-position: 0 0, 180px 120px;
-  }
-  100% {
-    transform: translate3d(-3%, -4%, 0) scale(1.05);
-    background-position: 0 0, 360px 0;
-  }
-}
-
-@keyframes waveDriftAlt {
-  0% {
-    transform: translate3d(4%, 3%, 0) scale(1.02);
-    background-position: 0 0, 0 0;
-  }
-  50% {
-    transform: translate3d(-2%, -1%, 0) scale(1.08);
-    background-position: 0 0, -220px 160px;
-  }
-  100% {
-    transform: translate3d(3%, 4%, 0) scale(1.02);
-    background-position: 0 0, -440px 0;
-  }
-}
-
-/* Removed animation keyframes for static gradient */

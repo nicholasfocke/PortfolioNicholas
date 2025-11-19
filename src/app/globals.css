@@ -36,8 +36,8 @@ body::after {
   background-repeat: no-repeat;
   /* Raise z-index so pseudo-elements are painted above the page background but below main content */
   z-index: 0;
-  /* Increase opacity para tornar as ondas levemente mais visíveis */
-  opacity: 0.1;
+  /* Opacidade menor para reduzir distrações e custo de repintura */
+  opacity: 0.06;
   /* Control default positioning/sizing of the layered backgrounds (individual rules may override) */
   background-position: 20% 30%, 80% 70%, center top;
   background-size: auto, auto, 160% 40%;
