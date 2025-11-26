@@ -35,15 +35,15 @@ export default function Home() {
   const featuredProjects: Project[] = [
     {
       title: "Kontaki",
-      description: "Aplicativo de automação comercial para organizar contatos, propostas e negociações em equipes comerciais.",
+      description: "Aplicativo de gerenciamento de avaliações, sugestões e reclamações para estabelecimentos.",
       image: "/images/kontaki.png",
       link: "https://www.kontaki.io/",
       details:
-        "Kontaki acelera o ciclo de vendas reunindo histórico de interações, funil visual e integrações com ferramentas de CRM.",
+        "Kontaki acelera o ciclo de gerenciamento e tomada de decisões reunindo histórico de interações feitas por usuários ou funcionários.",
     },
     {
       title: "Frida Kids",
-      description: "E-commerce criativo voltado para o público infantil, com foco em experiência visual e acessibilidade.",
+      description: "Agendamento criativo voltado para corte de cabelo em salão infantil, com foco em experiência visual e acessibilidade.",
       image: "/images/fridakids.png",
       link: "https://fridakids.vercel.app/login",
       details:
@@ -121,7 +121,7 @@ export default function Home() {
                     <p className={styles.heroVisualEyebrow}>Disponível para novos desafios</p>
                     <p className={styles.heroVisualTitle}>+3 entregas completas</p>
                     <p className={styles.heroVisualSubtitle}>
-                      SaaS, plataformas clínicas, e-commerces e integrações de automação comercial.
+                      SaaS, plataformas clínicas, e integrações de automação comercial.
                     </p>
                   </div>
                   <div className={styles.heroVisualStats}>
