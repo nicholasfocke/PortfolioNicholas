@@ -1,43 +1,41 @@
-// Importa a tipagem de metadados do Next.js para configurar SEO e informações da página.
 import type { Metadata } from "next";
-// Importa as fontes Geist para tipografia consistente em todo o site.
-import { Geist, Geist_Mono } from "next/font/google";
-// Importa os estilos globais compartilhados entre todas as páginas.
+import { DM_Serif_Display, IBM_Plex_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 
-// Configura a fonte sans-serif principal com suporte a caracteres latinos.
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const outfit = Outfit({
+  variable: "--font-outfit",
   subsets: ["latin"],
 });
 
-// Configura a fonte monoespaçada utilizada em possíveis trechos técnicos ou códigos.
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const ibmPlexMono = IBM_Plex_Mono({
+  variable: "--font-ibm-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
 });
 
-// Define as informações de metadados exibidas nos motores de busca e abas do navegador.
+const dmSerif = DM_Serif_Display({
+  variable: "--font-dm-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
-  title: "Nicholas Focke | Portfólio",
+  title: "Nicholas Focke | Portfolio",
   description:
-    "Portfólio de Nicholas Focke destacando experiências e projetos em desenvolvimento web moderno.",
+    "Portfolio de Nicholas Focke com foco em desenvolvimento backend, arquitetura de APIs e projetos web modernos.",
 };
 
-// Componente raiz que engloba toda a aplicação Next.js.
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    // Define o idioma principal do documento como português do Brasil.
     <html lang="pt-BR">
-      {/* Aplica as variáveis de fonte e suavização de texto ao corpo inteiro. */}
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        {/* Renderiza o conteúdo específico de cada página dentro do layout padrão. */}
+      <body className={`${outfit.variable} ${ibmPlexMono.variable} ${dmSerif.variable} antialiased`}>
         {children}
       </body>
     </html>
   );
 }
+
