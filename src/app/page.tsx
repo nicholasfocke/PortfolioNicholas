@@ -102,52 +102,52 @@ const content: Record<Locale, HomeContent> = {
     },
     hero: {
       tag: "Backend focused - Java ecosystem",
-      subtitle: "Engenheiro de software focado em backend moderno, APIs robustas e arquitetura escalavel.",
+      subtitle: "Engenheiro de software focado em backend moderno, APIs robustas e arquitetura escalável.",
       badges: ["Java", "Spring Boot", "JPA/Hibernate", "H2 Database", "PostgreSQL"],
       primaryCta: "Ver projetos",
       secondaryCta: "Entrar em contato",
-      available: "Disponivel para novos desafios",
-      availableStrong: "Backend, integracoes e produto",
+      available: "Disponível para novos desafios",
+      availableStrong: "Backend, integrações e produto",
     },
     about: {
       sectionLabel: "01 - Sobre",
       title: "Quem eu sou",
       paragraph1:
-        "Meu nome e Nicholas Focke, tenho 21 anos e atualmente estou no quarto semestre do Bacharelado em Sistemas de Informacao no Centro Universitario Cesmac.",
+        "Meu nome é Nicholas Focke, tenho 21 anos e atualmente estou no quarto semestre do Bacharelado em Sistemas de Informação no Centro Universitário Cesmac.",
       paragraph2:
-        "Sou um profissional autodidata, dedicado e com grande capacidade de aprendizado rapido. Tenho facilidade para atuar de forma independente e colaborativa, contribuindo com ideias e solucoes para objetivos em conjunto, com foco atual na stack backend Java.",
+        "Sou um profissional autodidata, dedicado e com grande capacidade de aprendizado rápido. Tenho facilidade para atuar de forma independente e colaborativa, contribuindo com ideias e soluções para objetivos em conjunto, com foco atual na stack backend Java.",
       stats: [
-        { value: "4o", label: "Semestre no Cesmac" },
+        { value: "4º", label: "Semestre no Cesmac" },
         { value: "3", label: "Projetos principais" },
         { value: "Java", label: "Foco atual em backend" },
-        { value: "Team", label: "Atuacao individual e colaborativa" },
+        { value: "Team", label: "Atuação individual e colaborativa" },
       ],
       stackLabel: "Stack principal",
     },
     experience: {
-      sectionLabel: "02 - Experiencia",
+      sectionLabel: "02 - Experiência",
       title: "Minha jornada",
       items: [
         {
           periodo: "2024 - Atual",
-          cargo: "Bacharelado em Sistemas de Informacao",
-          local: "Centro Universitario Cesmac - 4o semestre",
+          cargo: "Bacharelado em Sistemas de Informação",
+          local: "Centro Universitário Cesmac - 4º semestre",
           descricao:
-            "Atualmente curso Sistemas de Informacao no Cesmac. Sou autodidata, dedicado e com grande capacidade de aprendizado rapido, atuando bem de forma independente e em equipe.",
+            "Atualmente curso Sistemas de Informação no Cesmac. Sou autodidata, dedicado e com grande capacidade de aprendizado rápido, atuando bem de forma independente e em equipe.",
         },
         {
           periodo: "Projetos",
-          cargo: "Aplicacoes entregues",
+          cargo: "Aplicações entregues",
           local: "Kontaki, Frida Kids e ClinicAid",
           descricao:
-            "Desenvolvi projetos com foco em experiencia do usuario e entrega de valor, participando da implementacao de funcionalidades, organizacao tecnica e evolucao continua dos produtos.",
+            "Desenvolvi projetos com foco em experiência do usuário e entrega de valor, participando da implementação de funcionalidades, organização técnica e evolução contínua dos produtos.",
         },
         {
           periodo: "Agora",
           cargo: "Foco em Back-end Java",
           local: "Java, Spring Boot, JPA/Hibernate, JUnit e H2 Database",
           descricao:
-            "Estou aprofundando arquitetura backend com Java e Spring Boot, com foco em APIs robustas, persistencia de dados, testes automatizados e boas praticas de engenharia.",
+            "Estou aprofundando arquitetura backend com Java e Spring Boot, com foco em APIs robustas, persistência de dados, testes automatizados e boas práticas de engenharia.",
         },
       ],
     },
@@ -161,7 +161,7 @@ const content: Record<Locale, HomeContent> = {
         {
           title: "Kontaki",
           description:
-            "Aplicativo de gerenciamento de avaliacoes, sugestoes e reclamacoes para estabelecimentos, com foco em operacao e tomada de decisao.",
+            "Aplicativo de gerenciamento de avaliações, sugestões e reclamações para estabelecimentos, com foco em operação e tomada de decisão.",
           tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://www.kontaki.io/",
@@ -169,7 +169,7 @@ const content: Record<Locale, HomeContent> = {
         {
           title: "Frida Kids",
           description:
-            "Plataforma de agendamento com fluxo completo para salao infantil, priorizando usabilidade, seguranca e experiencia digital.",
+            "Plataforma de agendamento com fluxo completo para salão infantil, priorizando usabilidade, segurança e experiência digital.",
           tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://fridakids.vercel.app/login",
@@ -177,7 +177,7 @@ const content: Record<Locale, HomeContent> = {
         {
           title: "ClinicAid",
           description:
-            "Sistema para gestao de clinicas com dashboards, visao de atendimento e consolidacao de indicadores para monitoramento em tempo real.",
+            "Sistema para gestão de clínicas com dashboards, visão de atendimento e consolidação de indicadores para monitoramento em tempo real.",
           tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
           repo: "https://github.com/nicholasfocke",
         },
@@ -186,7 +186,7 @@ const content: Record<Locale, HomeContent> = {
     contact: {
       sectionLabel: "04 - Contato",
       title: "Vamos conversar",
-      text: "Estou aberto para oportunidades em desenvolvimento backend e projetos que precisem de arquitetura solida.",
+      text: "Estou aberto para oportunidades em desenvolvimento backend e projetos que precisem de arquitetura sólida.",
       cta: "Enviar e-mail",
     },
     footer: "Desenvolvido por",
@@ -223,7 +223,7 @@ const content: Record<Locale, HomeContent> = {
       sectionLabel: "01 - About",
       title: "Who I am",
       paragraph1:
-        "My name is Nicholas Focke, I am 21 years old, and I am currently in the fourth semester of a Bachelor degree in Information Systems at Centro Universitario Cesmac.",
+        "My name is Nicholas Focke, I am 21 years old, and I am currently in the fourth semester of a Bachelor degree in Information Systems at Centro Universitário Cesmac.",
       paragraph2:
         "I am a dedicated, self-taught professional with a strong ability to learn quickly. I work well both independently and collaboratively, contributing ideas and solutions toward shared goals, with a current focus on the Java backend stack.",
       stats: [
@@ -241,7 +241,7 @@ const content: Record<Locale, HomeContent> = {
         {
           periodo: "2024 - Present",
           cargo: "Bachelor in Information Systems",
-          local: "Centro Universitario Cesmac - 4th semester",
+          local: "Centro Universitário Cesmac - 4th semester",
           descricao:
             "I am currently studying Information Systems at Cesmac. I am self-taught, dedicated, and a fast learner, working effectively both independently and in teams.",
         },
