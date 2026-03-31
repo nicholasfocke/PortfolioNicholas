@@ -3,6 +3,9 @@ import styles from "../page.module.css";
 export type Project = {
   title: string;
   description: string;
+  status?: string;
+  highlights?: string[];
+  technologies: string;
   tags: string[];
   repo: string;
   demo?: string;
@@ -13,6 +16,7 @@ type FeaturedProjectsProps = {
   sectionLabel: string;
   sectionTitle: string;
   projectLabel: string;
+  technologiesLabel: string;
   repoLabel: string;
   demoLabel: string;
 };
@@ -22,6 +26,7 @@ export function FeaturedProjects({
   sectionLabel,
   sectionTitle,
   projectLabel,
+  technologiesLabel,
   repoLabel,
   demoLabel,
 }: FeaturedProjectsProps) {
@@ -37,8 +42,22 @@ export function FeaturedProjects({
             <div className={styles.projectNumber}>
               {String(index + 1).padStart(2, "0")} / {projectLabel}
             </div>
+            {project.status ? <p className={styles.projectStatus}>{project.status}</p> : null}
             <h3 className={styles.projectTitle}>{project.title}</h3>
             <p className={styles.projectDescription}>{project.description}</p>
+            {/* Backend-first detail bullets for technical readability */}
+            {project.highlights?.length ? (
+              <ul className={styles.projectHighlights}>
+                {project.highlights.map((highlight) => (
+                  <li key={highlight}>{highlight}</li>
+                ))}
+              </ul>
+            ) : null}
+
+            {/* Explicit technologies line requested for each project */}
+            <p className={styles.projectTechnologies}>
+              <strong>{technologiesLabel}:</strong> {project.technologies}
+            </p>
 
             <div className={styles.projectTags}>
               {project.tags.map((tag) => (

@@ -36,12 +36,19 @@ type HomeContent = {
   };
   hero: {
     tag: string;
+    titleRole: string;
     subtitle: string;
     badges: string[];
     primaryCta: string;
     secondaryCta: string;
     available: string;
     availableStrong: string;
+  };
+  backendSkills: {
+    sectionLabel: string;
+    title: string;
+    backendLabel: string;
+    backendItems: string;
   };
   about: {
     sectionLabel: string;
@@ -60,6 +67,7 @@ type HomeContent = {
     sectionLabel: string;
     title: string;
     projectLabel: string;
+    technologiesLabel: string;
     repoLabel: string;
     demoLabel: string;
     items: Project[];
@@ -102,15 +110,22 @@ const content: Record<Locale, HomeContent> = {
     },
     hero: {
       tag: "Backend focused - Java ecosystem",
-      subtitle: "Engenheiro de software focado em backend moderno, APIs robustas e arquitetura escalável.",
+      titleRole: "Backend Developer (Java & Spring Boot)",
+      subtitle: "Engenheiro de software focado em backend moderno, APIs robustas, regras de negócio e arquitetura escalável.",
       badges: ["Java", "Spring Boot", "JPA/Hibernate", "H2 Database", "PostgreSQL"],
       primaryCta: "Ver projetos",
       secondaryCta: "Entrar em contato",
       available: "Disponível para novos desafios",
       availableStrong: "Backend, integrações e produto",
     },
+    backendSkills: {
+      sectionLabel: "01 - Backend Skills",
+      title: "Especialidades de Back-end",
+      backendLabel: "Backend",
+      backendItems: "Java • Spring Boot • REST APIs • JPA • PostgreSQL",
+    },
     about: {
-      sectionLabel: "01 - Sobre",
+      sectionLabel: "02 - Sobre",
       title: "Quem eu sou",
       paragraph1:
         "Meu nome é Nicholas Focke, tenho 21 anos e atualmente estou no quarto semestre do Bacharelado em Sistemas de Informação no Centro Universitário Cesmac.",
@@ -125,7 +140,7 @@ const content: Record<Locale, HomeContent> = {
       stackLabel: "Stack principal",
     },
     experience: {
-      sectionLabel: "02 - Experiência",
+      sectionLabel: "03 - Experiência",
       title: "Minha jornada",
       items: [
         {
@@ -152,39 +167,58 @@ const content: Record<Locale, HomeContent> = {
       ],
     },
     projects: {
-      sectionLabel: "03 - Projetos",
+      sectionLabel: "04 - Projetos",
       title: "Projetos em destaque",
       projectLabel: "Projeto",
+      technologiesLabel: "Tecnologias",
       repoLabel: "GitHub",
       demoLabel: "Demo",
       items: [
         {
           title: "Kontaki",
           description:
-            "Aplicativo de gerenciamento de avaliações, sugestões e reclamações para estabelecimentos, com foco em operação e tomada de decisão.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Sistema de gerenciamento de feedback com regras de classificação, organização de chamados e integração com serviços de dados para apoiar decisões operacionais.",
+          technologies: "Java • Spring Boot • PostgreSQL • REST APIs",
+          tags: ["Spring Boot", "Java", "PostgreSQL", "REST API"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://www.kontaki.io/",
         },
         {
           title: "Frida Kids",
           description:
-            "Plataforma de agendamento com fluxo completo para salão infantil, priorizando usabilidade, segurança e experiência digital.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Back-end de agendamento com validação de disponibilidade, aplicação de regras de negócio por faixa de horário e integração de dados entre clientes, serviços e profissionais.",
+          technologies: "Java • Spring Boot • PostgreSQL • Postman",
+          tags: ["Spring Boot", "Java", "PostgreSQL", "Postman"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://fridakids.vercel.app/login",
         },
         {
           title: "ClinicAid",
           description:
-            "Sistema para gestão de clínicas com dashboards, visão de atendimento e consolidação de indicadores para monitoramento em tempo real.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Camada de serviços para gestão clínica com persistência estruturada, consultas para indicadores e integração por API para consolidar dados de atendimento.",
+          technologies: "Java • Spring Boot • JPA/Hibernate • PostgreSQL",
+          tags: ["Spring Boot", "JPA", "PostgreSQL", "REST API"],
+          repo: "https://github.com/nicholasfocke",
+        },
+        {
+          title: "Backend API (Spring Boot)",
+          status: "Em andamento",
+          description:
+            "API REST orientada a domínio para operações de cadastro e consulta, com foco em consistência de dados e organização em camadas.",
+          highlights: [
+            "REST API com operações CRUD",
+            "Integração com banco PostgreSQL",
+            "Arquitetura em camadas (Controller, Service, Repository)",
+            "Testes de endpoints com Postman",
+          ],
+          technologies: "Java • Spring Boot • PostgreSQL • Postman",
+          tags: ["Java", "Spring Boot", "PostgreSQL", "Postman"],
           repo: "https://github.com/nicholasfocke",
         },
       ],
     },
     contact: {
-      sectionLabel: "04 - Contato",
+      sectionLabel: "05 - Contato",
       title: "Vamos conversar",
       text: "Estou aberto para oportunidades em desenvolvimento backend e projetos que precisem de arquitetura sólida.",
       cta: "Enviar e-mail",
@@ -212,15 +246,22 @@ const content: Record<Locale, HomeContent> = {
     },
     hero: {
       tag: "Backend focused - Java ecosystem",
-      subtitle: "Software engineer focused on modern backend, robust APIs, and scalable architecture.",
+      titleRole: "Backend Developer (Java & Spring Boot)",
+      subtitle: "Software engineer focused on modern backend, robust APIs, business rules, and scalable architecture.",
       badges: ["Java", "Spring Boot", "JPA/Hibernate", "H2 Database", "PostgreSQL"],
       primaryCta: "View projects",
       secondaryCta: "Get in touch",
       available: "Available for new challenges",
       availableStrong: "Backend, integrations, and product",
     },
+    backendSkills: {
+      sectionLabel: "01 - Backend Skills",
+      title: "Backend Skills",
+      backendLabel: "Backend",
+      backendItems: "Java • Spring Boot • REST APIs • JPA • PostgreSQL",
+    },
     about: {
-      sectionLabel: "01 - About",
+      sectionLabel: "02 - About",
       title: "Who I am",
       paragraph1:
         "My name is Nicholas Focke, I am 21 years old, and I am currently in the fourth semester of a Bachelor degree in Information Systems at Centro Universitário Cesmac.",
@@ -235,7 +276,7 @@ const content: Record<Locale, HomeContent> = {
       stackLabel: "Main stack",
     },
     experience: {
-      sectionLabel: "02 - Experience",
+      sectionLabel: "03 - Experience",
       title: "My journey",
       items: [
         {
@@ -262,39 +303,58 @@ const content: Record<Locale, HomeContent> = {
       ],
     },
     projects: {
-      sectionLabel: "03 - Projects",
+      sectionLabel: "04 - Projects",
       title: "Featured projects",
       projectLabel: "Project",
+      technologiesLabel: "Technologies",
       repoLabel: "GitHub",
       demoLabel: "Demo",
       items: [
         {
           title: "Kontaki",
           description:
-            "Review, suggestion, and complaint management app for businesses, focused on operations and decision-making.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Feedback management system with classification rules, ticket organization, and data-service integration to support operational decisions.",
+          technologies: "Java • Spring Boot • PostgreSQL • REST APIs",
+          tags: ["Spring Boot", "Java", "PostgreSQL", "REST API"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://www.kontaki.io/",
         },
         {
           title: "Frida Kids",
           description:
-            "Scheduling platform for a kids salon, focused on usability, security, and digital experience.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Scheduling backend with availability validation, business-rule enforcement by time slot, and API data integration across customers, services, and professionals.",
+          technologies: "Java • Spring Boot • PostgreSQL • Postman",
+          tags: ["Spring Boot", "Java", "PostgreSQL", "Postman"],
           repo: "https://github.com/nicholasfocke",
           demo: "https://fridakids.vercel.app/login",
         },
         {
           title: "ClinicAid",
           description:
-            "Clinic management system with dashboards, service visibility, and real-time indicator tracking.",
-          tags: ["Next.js", "TypeScript", "Firebase", "Vercel"],
+            "Service layer for clinic management with structured persistence, indicator queries, and API integrations to consolidate appointment data.",
+          technologies: "Java • Spring Boot • JPA/Hibernate • PostgreSQL",
+          tags: ["Spring Boot", "JPA", "PostgreSQL", "REST API"],
+          repo: "https://github.com/nicholasfocke",
+        },
+        {
+          title: "Backend API (Spring Boot)",
+          status: "In progress",
+          description:
+            "Domain-oriented REST API for create/read/update/delete flows with focus on data consistency and clean layered architecture.",
+          highlights: [
+            "REST API with CRUD operations",
+            "Integration with PostgreSQL database",
+            "Layered architecture (Controller, Service, Repository)",
+            "Endpoint testing with Postman",
+          ],
+          technologies: "Java • Spring Boot • PostgreSQL • Postman",
+          tags: ["Java", "Spring Boot", "PostgreSQL", "Postman"],
           repo: "https://github.com/nicholasfocke",
         },
       ],
     },
     contact: {
-      sectionLabel: "04 - Contact",
+      sectionLabel: "05 - Contact",
       title: "Let us connect",
       text: "I am open to backend development opportunities and projects that need solid architecture.",
       cta: "Send e-mail",
@@ -387,6 +447,8 @@ export default function Home() {
                 <br />
                 Focke
               </h1>
+              {/* Repositioned headline to make backend role explicit */}
+              <p className={styles.heroRole}>{t.hero.titleRole}</p>
               <p className={styles.heroSubtitle}>{t.hero.subtitle}</p>
 
               <div className={styles.heroBadges}>
@@ -420,6 +482,19 @@ export default function Home() {
                 <strong>{t.hero.availableStrong}</strong>
               </div>
             </div>
+          </div>
+        </section>
+
+        <hr className={styles.divider} />
+
+        {/* New section near the top to highlight backend stack first */}
+        <section id="backend-skills" className={styles.section}>
+          <div className={styles.sectionLabel}>{t.backendSkills.sectionLabel}</div>
+          <h2 className={styles.sectionTitle}>{t.backendSkills.title}</h2>
+          <div className={styles.sectionLine} />
+          <div className={styles.backendSkillsCard} data-reveal>
+            <span className={styles.backendSkillsLabel}>{t.backendSkills.backendLabel}:</span>
+            <p className={styles.backendSkillsText}>{t.backendSkills.backendItems}</p>
           </div>
         </section>
 
@@ -492,6 +567,7 @@ export default function Home() {
           sectionLabel={t.projects.sectionLabel}
           sectionTitle={t.projects.title}
           projectLabel={t.projects.projectLabel}
+          technologiesLabel={t.projects.technologiesLabel}
           repoLabel={t.projects.repoLabel}
           demoLabel={t.projects.demoLabel}
         />
